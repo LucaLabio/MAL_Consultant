@@ -1,3 +1,6 @@
+from server.routes.anime import router as AnimeRouter
+from dotenv import load_dotenv
+from bson.json_util import dumps
 from server.database import *
 from fastapi import FastAPI
 import requests
@@ -5,8 +8,8 @@ import pymongo
 import json
 import re
 import os
-from bson.json_util import dumps
-from server.routes.anime import router as AnimeRouter
+
+load_dotenv()
 
 app = FastAPI()
 

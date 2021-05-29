@@ -1,14 +1,15 @@
 import motor.motor_asyncio
+from dotenv import load_dotenv
 from bson.objectid import ObjectId
 import os
 
-
+load_dotenv()
 
 client = motor.motor_asyncio.AsyncIOMotorClient(os.getenv("MONGO_DETAILS"))
 
-database = client[os.getenv("DATABASE")]
+database = client.MAL_Consults
 
-anime_collection = database.get_collection(os.getenv("COLLECTION"))
+anime_collection = database.get_collection("MAL_Finished_Consults")
 
 
 def anime_helper(anime) -> dict:
