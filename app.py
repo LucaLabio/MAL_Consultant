@@ -55,3 +55,8 @@ async def get_anime_info_by_name(name):
         return mydoc
     else:
         return {"message":f"Nao foram encontrados animes com o nome {name} no banco de dados"}
+        
+@app.on_event("shutdown")
+def shutdown_event():
+    print("connection closed")
+    client.close()
